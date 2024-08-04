@@ -5,10 +5,11 @@ const AddNote = () => {
     const context = useContext(Notecontext);
     const {Addnote} = context;
 
-    const [note, setNote] = useState({title: "", description: "" ,tag:"default"})
+    const [note, setNote] = useState({title: "", description: "" ,tag:""})
     const handleclick =(e) =>{
         e.preventDefault();
-     Addnote(note.title, note.description ,note.tag)
+     Addnote(note.title, note.description ,note.tag);
+     setNote({title: "", description: "" ,tag:""})
     }
 
     const onchange =(e) =>{
@@ -29,6 +30,7 @@ const AddNote = () => {
               id="title"
               name="title"
               aria-describedby="emailhelp"
+              value={note.title}
               onChange={onchange}
             />
           </div>
@@ -41,18 +43,22 @@ const AddNote = () => {
               className="form-control"
               id="description"
               name="description"
+              value={note.description}
               onChange={onchange}
             />
           </div>
-          <div className="mb-3 form-check">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id="exampleCheck1"
-            />
-            <label className="form-check-label" htmlFor="exampleCheck1">
-              Check me out
+          <div className="mb-3">
+            <label htmlFor="Description" className="form-label">
+              Tag
             </label>
+            <input
+              type="text"
+              className="form-control"
+              id="description"
+              name="tag"
+              value={note.tag}
+              onChange={onchange}
+            />
           </div>
           <button type="submit" className="btn btn-primary " onClick={handleclick}>
             Submit
