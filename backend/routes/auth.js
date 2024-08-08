@@ -4,7 +4,7 @@ const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
-const JWT_SECRET = 'abdullahisagenuismen';
+const JWT_SECRET = 'helloworld';
 const fetchuser = require('../middleware/fetchuser');
 
 
@@ -16,9 +16,10 @@ router.post(
     body("password").isLength({ min: 5 }),
   ],
   async (req, res) => {
+    let success = false;
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({errors: errors.array() });
     }
     try {
         
@@ -44,7 +45,8 @@ router.post(
         id: user.id
       }
     }
-    const authtoken = jwt.sign(data,JWT_SECRET);
+     success = true;
+    const authtoken = jwt.sign(success, data,JWT_SECRET);
     res.json({authtoken})
     } 
     catch (error) {
@@ -64,6 +66,7 @@ router.post(
     body("password").exists(),
   ],
   async (req, res) => {
+    let success = false;
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -76,7 +79,7 @@ router.post(
       }
       const passwordcompare = await bcrypt.compare(password , user.password);
       if(!passwordcompare){
-        return res.status(400).json({error : "incoorect password"});
+        return res.status(400).json({ error : "incoorect password"});
       
     } const data = {
       user:{
@@ -84,7 +87,8 @@ router.post(
       }
     }
     const authtoken = jwt.sign(data,JWT_SECRET);
-    res.json({authtoken})
+    success = true;
+    res.json({success, authtoken})
     } 
     catch (error) {
         console.error(error.message);
