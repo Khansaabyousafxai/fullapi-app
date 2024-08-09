@@ -11,8 +11,7 @@ const NoteState = (props) => {
       const response = await axios.get(`${host}/api/notes/fetchallnotes`, {
         headers: {
           "Content-Type": "application/json",
-          "auth-token":
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY5NzZmZTQ0OGJhM2JmNWRkMTA0OTJkIn0sImlhdCI6MTcyMTQwOTAzM30.cZ5QGV_z0m0XEZRK29nO1TiX6HAfo5snrQ4PDzcpZq0",
+          "auth-token": localStorage.getItem("token"),
         },
       });
       const data = await response.data;
@@ -31,8 +30,7 @@ const NoteState = (props) => {
         {
           headers: {
             "Content-Type": "application/json",
-            "auth-token":
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY5NzZmZTQ0OGJhM2JmNWRkMTA0OTJkIn0sImlhdCI6MTcyMTQwOTAzM30.cZ5QGV_z0m0XEZRK29nO1TiX6HAfo5snrQ4PDzcpZq0",
+            "auth-token": localStorage.getItem("token"),
           },
         }
       );
@@ -52,8 +50,7 @@ const NoteState = (props) => {
         {
           headers: {
             "Content-Type": "application/json",
-            "auth-token":
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY5NzZmZTQ0OGJhM2JmNWRkMTA0OTJkIn0sImlhdCI6MTcyMTQwOTAzM30.cZ5QGV_z0m0XEZRK29nO1TiX6HAfo5snrQ4PDzcpZq0",
+            "auth-token": localStorage.getItem("token"),
           },
         }
       );
@@ -76,8 +73,7 @@ const NoteState = (props) => {
         {
           headers: {
             "Content-Type": "application/json",
-            "auth-token":
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY5NzZmZTQ0OGJhM2JmNWRkMTA0OTJkIn0sImlhdCI6MTcyMTQwOTAzM30.cZ5QGV_z0m0XEZRK29nO1TiX6HAfo5snrQ4PDzcpZq0",
+            "auth-token": localStorage.getItem("token"),
           },
         }
       );

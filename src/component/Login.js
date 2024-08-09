@@ -39,7 +39,7 @@ const Login = () => {
 
   return (
     <div className="container">
-      <form onSubmit={handleClick}>
+      <form className="my-3" onSubmit={handleClick}>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
             Email address
